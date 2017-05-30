@@ -50,7 +50,7 @@ public class ClienteJuego extends javax.swing.JFrame implements Ventana {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        salidaB.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\Cerrar.png")); // NOI18N
+        salidaB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cerrar.png"))); // NOI18N
         salidaB.setBorderPainted(false);
         salidaB.setContentAreaFilled(false);
         salidaB.setPreferredSize(new java.awt.Dimension(30, 30));
@@ -62,7 +62,7 @@ public class ClienteJuego extends javax.swing.JFrame implements Ventana {
         supPanelL.setText("Informacion del Jugador");
         getContentPane().add(supPanelL, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 144, 360, 40));
 
-        supPanelFL.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\SupInfo.png")); // NOI18N
+        supPanelFL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/SupInfo.png"))); // NOI18N
         supPanelFL.setText("jLabel4");
         getContentPane().add(supPanelFL, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 440, 50));
 
@@ -113,11 +113,11 @@ public class ClienteJuego extends javax.swing.JFrame implements Ventana {
         retarB.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(22, 133, 179), 3, true));
         getContentPane().add(retarB, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 560, 140, 60));
 
-        panelInfoL.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\PanelInfo.png")); // NOI18N
+        panelInfoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/PanelInfo.png"))); // NOI18N
         panelInfoL.setText("jLabel2");
         getContentPane().add(panelInfoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 440, 340));
 
-        panelRetarL.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\PanelRet.png")); // NOI18N
+        panelRetarL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/PanelRet.png"))); // NOI18N
         panelRetarL.setText("jLabel3");
         getContentPane().add(panelRetarL, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 530, 540, 120));
 
@@ -130,12 +130,12 @@ public class ClienteJuego extends javax.swing.JFrame implements Ventana {
 
         fondoTituloL.setBackground(new java.awt.Color(255, 255, 255));
         fondoTituloL.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        fondoTituloL.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\SupInter.png")); // NOI18N
+        fondoTituloL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/SupInter.png"))); // NOI18N
         fondoTituloL.setText("Invasion Alien");
         fondoTituloL.setToolTipText("");
         getContentPane().add(fondoTituloL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 70));
 
-        fondoL.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\FondoJFrame.png")); // NOI18N
+        fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/FondoJFrame.png"))); // NOI18N
         fondoL.setText("jLabel1");
         fondoL.setPreferredSize(new java.awt.Dimension(700, 700));
         getContentPane().add(fondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

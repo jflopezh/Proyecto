@@ -44,13 +44,13 @@ public class InicioSesion extends javax.swing.JFrame implements Ventana {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        salidaB.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\Cerrar.png")); // NOI18N
+        salidaB.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/Cerrar.png"))); // NOI18N
         salidaB.setBorder(null);
         salidaB.setBorderPainted(false);
         salidaB.setContentAreaFilled(false);
         getContentPane().add(salidaB, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 20, 30, 30));
 
-        iconoL.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\IconoFondo.png")); // NOI18N
+        iconoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/IconoFondo.png"))); // NOI18N
         iconoL.setText("jLabelIcono");
         getContentPane().add(iconoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 130, 130));
 
@@ -85,11 +85,11 @@ public class InicioSesion extends javax.swing.JFrame implements Ventana {
         ingresoB.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(23, 127, 171), 3, true));
         getContentPane().add(ingresoB, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 560, 170, 40));
 
-        panelL.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\PanelInicioSesion.png")); // NOI18N
+        panelL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/PanelInicioSesion.png"))); // NOI18N
         panelL.setText("jLabel4");
         getContentPane().add(panelL, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 400, 400));
 
-        fondoL.setIcon(new javax.swing.ImageIcon("C:\\Users\\aleja\\Documents\\NetBeansProjects\\InvasionAlien\\Recursos\\FondoJFrame.png")); // NOI18N
+        fondoL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/FondoJFrame.png"))); // NOI18N
         fondoL.setText("jLabelFondo");
         getContentPane().add(fondoL, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, -1));
 
