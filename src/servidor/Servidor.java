@@ -16,6 +16,7 @@ public class Servidor extends Thread{
     private ArrayList<Cuenta> cuentas;
     private TreeMap<Integer, Cuenta> ranking;
     private TreeMap<Integer, Competencia> competencias;
+    private int indexComp;
     
     public Servidor(int puerto) {
         try {
@@ -65,10 +66,11 @@ public class Servidor extends Thread{
     
     public void añadirCompetencia(int id, Competencia competencia) {
         competencias.put(id, competencia);
+        indexComp++;
     }
     
     public int getIndexCompetencias() {
-        return competencias.lastKey();
+        return indexComp;
     }
     
     public ArrayList<Cuenta> getCuentas() {

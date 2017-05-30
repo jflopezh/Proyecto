@@ -1,6 +1,7 @@
 package cliente;
 
 import java.io.IOException;
+import javax.swing.JFrame;
 
 /**
  *
@@ -14,7 +15,7 @@ public class InvasionAlien {
     public static Controlador CONTR;
     public static InicioSesion IS;
     public static ClienteJuego CJ;
-    public static Juego J;
+    public static JFrame J;
     
     public static void main(String[] args) {
         try {
@@ -35,7 +36,13 @@ public class InvasionAlien {
     }
     
     public static void iniciarCompetencia(Competencia c) {
-        J = new Juego(c);
+        J = new JFrame();
+        J.add(c);
+        J.setSize(1366, 700);
+        J.setLocationRelativeTo(null);
+        J.setTitle("Invacion Alien");
+        J.setUndecorated(true);
+        J.setVisible(true);
     }
     
 }

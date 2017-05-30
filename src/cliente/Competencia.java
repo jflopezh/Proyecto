@@ -38,6 +38,7 @@ public class Competencia extends JPanel implements ActionListener {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
+        g.drawImage(loadImage("/recursos/FondoJuego.png"), 0, 0, 1366, 700, this);
         for (Dibujo d : aDibujar) {
             d.dibujar(g, this);
         }
