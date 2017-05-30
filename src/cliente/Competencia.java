@@ -27,6 +27,8 @@ public class Competencia extends JPanel implements ActionListener {
     private int tiempo;
     
     public Competencia(int id, Jugador jugador1, Jugador jugador2, ArrayList<Monstruo> monstruos) {
+        removerM = new ArrayList<>();
+        removerD = new ArrayList<>();
         this.id = id;
         this.jugador1 = jugador1;
         this.jugador2 = jugador2;
