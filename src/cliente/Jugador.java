@@ -26,7 +26,7 @@ public class Jugador extends Dibujo {
     }
     
     public void dibujar(Graphics g, JPanel p) {
-        g.drawImage(loadImage("/recursos/" + imagen), x, y, x + ancho, y + alto, p);
+        g.drawImage(loadImage("/recursos/" + imagen), x, y, ancho, alto, p);
     }
     
 }

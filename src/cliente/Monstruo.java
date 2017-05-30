@@ -37,8 +37,8 @@ public class Monstruo extends Dibujo {
     @Override
     public void dibujar(Graphics g, JPanel p) {
         if (direccion) {
-            g.drawImage(loadImage("/recursos/" + imagen), x, y, x + ancho, y + alto, p);
-            g.drawImage(loadImage("/recursos/" + imagen), x + 712, y, x + ancho + 712, y + alto, p);
+            g.drawImage(loadImage("/recursos/" + imagen), x, y, ancho, alto, p);
+            g.drawImage(loadImage("/recursos/" + imagen), x + 712, y, ancho + 712, alto, p);
         } else {
             g.drawImage(loadImage("/recursos/" + imagen), x, y, x - ancho, y + alto, 0, 0, 200, 150, p);
             g.drawImage(loadImage("/recursos/" + imagen), x + 712, y, x - ancho + 712, y + alto, 0, 0, 200, 150, p);
