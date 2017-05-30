@@ -8,9 +8,9 @@ import java.io.PrintWriter;
  */
 public class GestorSalida {
     
-    public static void enviar(PrintWriter salida, String packet) {
-	if (salida != null && !packet.isEmpty() && !packet.equals("")) {
-            salida.println(packet);
+    public static void enviar(PrintWriter salida, String paquete) {
+	if (salida != null && !paquete.isEmpty() && !paquete.equals("")) {
+            salida.println(paquete);
             salida.flush();
 	}
     }
@@ -29,4 +29,20 @@ public class GestorSalida {
         String paquete = "I-C";
         enviar(salida, paquete);
     }
+    
+    public static void enviarReto(PrintWriter salida, String retador) {
+        String paquete = "A-R:" + retador;
+        enviar(salida, paquete);
+    }
+    
+    public static void enviarUsuarioInexistente(PrintWriter salida) {
+        String paquete = "A-I";
+        enviar(salida, paquete);
+    }
+    
+    public static void enviarUsuarioDesconectado(PrintWriter salida) {
+        String paquete = "A-D";
+        enviar(salida, paquete);
+    }
+    
 }

@@ -6,11 +6,13 @@ package servidor;
  */
 public class InvasionAlien {
     
-    public static boolean cerrando;
+    public static boolean CERRANDO;
+    public static Servidor SERVIDOR;
+    public static final String ARCHIVO_CARGA = "Cuentas.txt";
     
     public static void main(String[] args) {
-        Servidor servidor = new Servidor(7540);
-        servidor.start();
+        SERVIDOR = new Servidor(7540);
+        SERVIDOR.start();
     }
     
 }

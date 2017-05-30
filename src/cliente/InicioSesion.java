@@ -1,15 +1,27 @@
 package cliente;
 
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
 /**
  *
  * @author aleja
  */
-public class InicioSesion extends javax.swing.JFrame {
-
+public class InicioSesion extends javax.swing.JFrame implements Ventana {
+    
+    private Controlador controlador;
+    
     public InicioSesion() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(700, 700);
+    }
+    
+    public void initListeners(Controlador controlador) {
+        this.controlador = controlador;
+        salidaB.addActionListener(this.controlador);
+        ingresoB.addActionListener(this.controlador);
     }
 
     @SuppressWarnings("unchecked")
@@ -95,5 +107,21 @@ public class InicioSesion extends javax.swing.JFrame {
     private javax.swing.JLabel usuarioL;
     private javax.swing.JTextField usuarioTF;
     // End of variables declaration//GEN-END:variables
+    
+    public JButton getBotonI() {
+        return ingresoB;
+    }
+    
+    public JButton getBotonC() {
+        return salidaB;
+    }
 
+    public JPasswordField getContraseñaTF() {
+        return contraseñaTF;
+    }
+
+    public JTextField getUsuarioTF() {
+        return usuarioTF;
+    }
+    
 }

@@ -17,10 +17,11 @@ public class Conector extends Thread {
         synchronized (cliente.getCuenta()) {
             if (cliente.getCuenta().getId() == 0) {
                 try {
+                    System.out.println("esperando ingreso");
                     cliente.getCuenta().wait();
+                    InvasionAlien.SERVIDOR.añadirCliente(cliente.getCuenta().getId(), cliente);
                 } catch (InterruptedException ex) {}
-            }
-            Servidor.añadirCliente(cliente.getCuenta().getId(), cliente);
+            }            
         }
     }
     

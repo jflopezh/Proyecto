@@ -11,11 +11,11 @@ import java.util.TreeMap;
  */
 public class Servidor extends Thread{
     
-    private static ServerSocket servidor;
-    private static TreeMap<Integer, EntradaUsuario> clientes;
-    private static ArrayList<Cuenta> cuentas;
-    private static TreeMap<Integer, Cuenta> ranking;
-    private static TreeMap<Integer, Competencia> competencias;
+    private ServerSocket servidor;
+    private TreeMap<Integer, EntradaUsuario> clientes;
+    private ArrayList<Cuenta> cuentas;
+    private TreeMap<Integer, Cuenta> ranking;
+    private TreeMap<Integer, Competencia> competencias;
     
     public Servidor(int puerto) {
         try {
@@ -23,11 +23,17 @@ public class Servidor extends Thread{
         } catch (IOException ex) {
             System.out.println("El servidor no pudo ser creado");
         }
+        clientes = new TreeMap<>();
+        cuentas = new ArrayList<>();
+        ranking = new TreeMap<>();
+        competencias = new TreeMap<>();
+        Cuenta c = new Cuenta(1, "juan", "miculo123", 1000, 3);
+        cuentas.add(c);
     }
     
     @Override
     public void run() {
-        while (!InvasionAlien.cerrando) {
+        while (!InvasionAlien.CERRANDO) {
             try {
                 EntradaUsuario cliente = new EntradaUsuario(servidor.accept());
                 cliente.start();
@@ -38,11 +44,31 @@ public class Servidor extends Thread{
         }
     }
     
-    public static void añadirCliente(int idCuenta, EntradaUsuario cliente) {
+    public void añadirCliente(int idCuenta, EntradaUsuario cliente) {
         clientes.put(idCuenta, cliente);
     }
     
-    public static ArrayList<Cuenta> getCuentas() {
+    public void removerCliente(int id) {
+        clientes.remove(id);
+    }
+    
+    public EntradaUsuario getCliente(int id) {
+        if (!clientes.containsKey(id)) {
+            return null;
+        }
+        return clientes.get(id);
+    }
+    
+    public ArrayList<Cuenta> getCuentas() {
         return cuentas;
+    }
+    
+    public synchronized int getIdRetado(String retado) {
+        for (Cuenta c : cuentas) {
+            if (c.getUsuario().equals(retado)) {
+                return c.getId();
+            }
+        }
+        return -1;
     }
 }

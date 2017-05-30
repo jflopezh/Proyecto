@@ -11,15 +11,15 @@ public class Cuenta {
     private int puntos;
     private int posRanking;
 
-    public Cuenta(String usuario, String contraseña, int puntos) {
+    public Cuenta(int id, String usuario, String contraseña, int puntos, int posRanking) {
+        this.id = id;
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.puntos = puntos;
+        this.posRanking = posRanking;
     }
 
-    public Cuenta() {
-        id = 0;
-    }
+    public Cuenta() {};
     
     public void añadirVictoria() {
         puntos += 20;
