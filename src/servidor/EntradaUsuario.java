@@ -42,14 +42,13 @@ public class EntradaUsuario extends Thread {
         while (!InvasionAlien.CERRANDO && activa) {
             try {
                 paquete = entrada.readLine();
+                System.out.println("PAQUETE RECIBIDO: " + paquete);
                 if(paquete != null) {
                     if (!paquete.isEmpty()) {
                         analizarPaquete(paquete);
                     }
                 }
-            } catch (IOException ex) {
-                Logger.getLogger(EntradaUsuario.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            } catch (IOException ex) {}
         }
         System.out.println("Conexion cerrada exitosamente");
     }
@@ -67,7 +66,8 @@ public class EntradaUsuario extends Thread {
                 break;
             case 'A':
                 String reto = paquete.split("-")[1];
-                
+                analizarReto(reto);
+                break;
         }
     }
     
@@ -95,11 +95,17 @@ public class EntradaUsuario extends Thread {
     }
     
     private void analizarReto(String reto) {
-        switch (reto) {
-            case "A":
-                
+        switch (reto.charAt(0)) {
+            case 'A':
+                String retador = reto.split(":")[1];
+                int idRetador = InvasionAlien.SERVIDOR.getIdRetado(retador);
+                Competencia c = new Competencia(InvasionAlien.SERVIDOR.getIndexCompetencias() + 1,
+                                                idRetador, cuenta.getId());
+                EntradaUsuario cretador = InvasionAlien.SERVIDOR.getCliente(idRetador);
+                GestorSalida.enviarCompetencia(salida, c);
+                GestorSalida.enviarCompetencia(cretador.getSalida(), c);                
                 break;
-            case "R":
+            case 'R':
                 String retado = reto.split(":")[1];
                 int idRetado = InvasionAlien.SERVIDOR.getIdRetado(retado);
                 if (idRetado == -1) {

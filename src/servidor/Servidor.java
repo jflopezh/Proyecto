@@ -28,7 +28,9 @@ public class Servidor extends Thread{
         ranking = new TreeMap<>();
         competencias = new TreeMap<>();
         Cuenta c = new Cuenta(1, "juan", "miculo123", 1000, 3);
+        Cuenta c2 = new Cuenta(2, "mario", "jajaja", 1200, 4);
         cuentas.add(c);
+        cuentas.add(c2);
     }
     
     @Override
@@ -40,7 +42,9 @@ public class Servidor extends Thread{
                 System.out.println("Se ha conectado un usuario");
                 Conector conexion = new Conector(cliente);
                 conexion.start();
-            } catch (IOException ex) {}
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
         }
     }
     
@@ -57,6 +61,14 @@ public class Servidor extends Thread{
             return null;
         }
         return clientes.get(id);
+    }
+    
+    public void añadirCompetencia(int id, Competencia competencia) {
+        competencias.put(id, competencia);
+    }
+    
+    public int getIndexCompetencias() {
+        return competencias.lastKey();
     }
     
     public ArrayList<Cuenta> getCuentas() {

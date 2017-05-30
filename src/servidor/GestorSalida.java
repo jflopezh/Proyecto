@@ -45,4 +45,9 @@ public class GestorSalida {
         enviar(salida, paquete);
     }
     
+    public static void enviarCompetencia(PrintWriter salida, Competencia comp) {
+        String paquete = "L-C:" + comp.toString();
+        enviar(salida, paquete);
+    }
+    
 }

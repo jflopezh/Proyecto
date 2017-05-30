@@ -16,6 +16,7 @@ public class InicioSesion extends javax.swing.JFrame implements Ventana {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(700, 700);
+        this.setTitle("Invasion Alien");
     }
     
     public void initListeners(Controlador controlador) {
