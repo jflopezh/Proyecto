@@ -19,7 +19,9 @@ public class Competencia extends JPanel implements ActionListener {
     private Jugador jugador1;
     private Jugador jugador2;
     private ArrayList<Monstruo> monstruos;
+    private ArrayList<Monstruo> removerM;
     private ArrayList<Dibujo> aDibujar;
+    private ArrayList<Dibujo> removerD;
     private Timer timer;
     private int count;
     private int tiempo;
@@ -60,9 +62,11 @@ public class Competencia extends JPanel implements ActionListener {
                 Monstruo m = monstruos.get(i);
                 if (m.getTiempoEntrada() == tiempo) {
                     aDibujar.add(m);
-                    monstruos.remove(m);
+                    removerM.add(m);
                 }
             }
+            monstruos.removeAll(removerM);
+            removerM.clear();
             count = 0;
         }
         for (Dibujo d : aDibujar) {
@@ -70,12 +74,14 @@ public class Competencia extends JPanel implements ActionListener {
                 Monstruo m = (Monstruo) d;
                 m.mover();
                 if (m.isDireccion() && (m.getX() > 600 && m.getX() <700)) {
-                    aDibujar.remove(m);
+                    removerD.add(m);
                 } else if (!m.isDireccion() && (m.getX() > -50 && m.getX() <50)) {
-                    aDibujar.remove(m);
+                    removerD.add(m);
                 }
             }
         }
+        aDibujar.removeAll(removerD);
+        removerD.clear();
         repaint();
     }
 }
