@@ -33,6 +33,7 @@ public class Competencia extends JPanel implements ActionListener {
         aDibujar.add(jugador2);
         this.monstruos = monstruos;
         timer = new Timer(100, this);
+        timer.start();
     }
     
     @Override
@@ -55,7 +56,8 @@ public class Competencia extends JPanel implements ActionListener {
         count++;
         if (count == 10) {
             tiempo++;
-            for (Monstruo m : monstruos) {
+            for (int i = 0; i < monstruos.size(); i++) {
+                Monstruo m = monstruos.get(i);
                 if (m.getTiempoEntrada() == tiempo) {
                     aDibujar.add(m);
                     monstruos.remove(m);
@@ -74,5 +76,6 @@ public class Competencia extends JPanel implements ActionListener {
                 }
             }
         }
+        repaint();
     }
 }

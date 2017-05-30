@@ -28,7 +28,7 @@ public class Servidor extends Thread{
         cuentas = new ArrayList<>();
         ranking = new TreeMap<>();
         competencias = new TreeMap<>();
-        Cuenta c = new Cuenta(1, "juan", "miculo123", 1000, 3);
+        Cuenta c = new Cuenta(1, "juan", "lalala", 1000, 3);
         Cuenta c2 = new Cuenta(2, "mario", "jajaja", 1200, 4);
         cuentas.add(c);
         cuentas.add(c2);
