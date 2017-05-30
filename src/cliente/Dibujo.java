@@ -1,6 +1,8 @@
 package cliente;
 
 import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -37,4 +39,9 @@ public abstract class Dibujo {
     
     public abstract void dibujar(Graphics g, JPanel p);
     
+    public Image loadImage(String imageName) {
+        ImageIcon ii = new ImageIcon(getClass().getResource(imageName));
+        Image image = ii.getImage();
+        return image;
+    }
 }

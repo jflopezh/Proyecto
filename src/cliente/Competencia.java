@@ -47,8 +47,8 @@ public class Competencia extends JPanel implements ActionListener {
         }
     }
     
-    public static Image loadImage(String imageName) {
-        ImageIcon ii = new ImageIcon(imageName);
+    public Image loadImage(String imageName) {
+        ImageIcon ii = new ImageIcon(getClass().getResource(imageName));
         Image image = ii.getImage();
         return image;
     }
