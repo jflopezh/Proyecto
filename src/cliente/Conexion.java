@@ -136,21 +136,27 @@ public class Conexion extends Thread {
         switch (mov) {
             case "D":
                 InvasionAlien.C.getJugador2().moverDerecha();
+                InvasionAlien.C.repaint();
                 break;
             case "I":
                 InvasionAlien.C.getJugador2().moverIzquierda();
+                InvasionAlien.C.repaint();
                 break;
             case "Z":
                 InvasionAlien.C.getJugador2().disparar(1);
+                InvasionAlien.C.repaint();
                 break;
             case "X":
                 InvasionAlien.C.getJugador2().disparar(2);
+                InvasionAlien.C.repaint();
                 break;
             case "C":
                 InvasionAlien.C.getJugador2().disparar(3);
+                InvasionAlien.C.repaint();
                 break;
             case "R":
                 InvasionAlien.C.getJugador2().disparar(0);
+                InvasionAlien.C.repaint();
                 break;
             default:
                 throw new AssertionError();

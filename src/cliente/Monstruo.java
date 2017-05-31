@@ -17,6 +17,7 @@ public class Monstruo extends Dibujo {
     private int secuencia;
     private int tiempoEntrada;
     private int limSecuencia;
+    private boolean ladoIzquierdo;
 
     public Monstruo(int tipo, boolean direccion, int altura, int velocidad, int tiempoEntrada, boolean ladoIzquierdo) {
         super(0, 0, 150, 112, tipo + "-1.png");
@@ -24,18 +25,19 @@ public class Monstruo extends Dibujo {
         this.direccion = direccion;
         this.altura = altura;
         this.velocidad = velocidad;
+        this.ladoIzquierdo = ladoIzquierdo;
         y = 250 + ((altura - 1) * 150);
-        if (direccion) {
-            if (ladoIzquierdo) {
+        if (ladoIzquierdo) {
+            if (direccion) {
                 x = -150;
             } else {
-                x = 670;
+                x = 750;
             }
         } else {
-            if (ladoIzquierdo) {
-                x = 750;
+            if (direccion) {
+                x = 670;
             } else {
-                x = 750 + 700;
+                x = 1450;
             }
         }
         this.tiempoEntrada = tiempoEntrada;
@@ -106,6 +108,10 @@ public class Monstruo extends Dibujo {
 
     public int getTiempoEntrada() {
         return tiempoEntrada;
+    }
+
+    public boolean isLadoIzquierdo() {
+        return ladoIzquierdo;
     }
     
     public Point getCorazon() {

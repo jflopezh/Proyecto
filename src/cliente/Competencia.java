@@ -102,9 +102,13 @@ public class Competencia extends JPanel implements ActionListener {
             if (d instanceof Monstruo) {
                 Monstruo m = (Monstruo) d;
                 m.mover();
-                if (m.isDireccion() && m.getX() > 570) {
+                if (m.isDireccion() && m.isLadoIzquierdo() && m.getX() > 570) {
                     removerD.add(m);
-                } else if (!m.isDireccion() && m.getX() < 80) {
+                } else if (!m.isDireccion() && m.isLadoIzquierdo() && m.getX() < 80) {
+                    removerD.add(m);
+                } else if (m.isDireccion() && !m.isLadoIzquierdo() && m.getX() > 1390) {
+                    removerD.add(m);
+                } else if (!m.isDireccion() && !m.isLadoIzquierdo() && m.getX() < 830) {
                     removerD.add(m);
                 }
             }
