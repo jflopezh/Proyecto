@@ -53,6 +53,10 @@ public class EntradaUsuario extends Thread {
     
     private void analizarPaquete(String paquete) {
         switch (paquete.charAt(0)) {
+            case 'L':
+                String competencia = paquete.split("-")[1];
+                analizarCompetencia(competencia);
+                break;
             case 'I':
                 String[] ingreso = paquete.split("-");
                 String usuario = ingreso[1];
@@ -101,7 +105,8 @@ public class EntradaUsuario extends Thread {
                                                 idRetador, cuenta.getId());
                 EntradaUsuario cretador = InvasionAlien.SERVIDOR.getCliente(idRetador);
                 GestorSalida.enviarCompetencia(salida, c);
-                GestorSalida.enviarCompetencia(cretador.getSalida(), c);                
+                GestorSalida.enviarCompetencia(cretador.getSalida(), c);
+                InvasionAlien.SERVIDOR.añadirCompetencia(c.getId(), c);
                 break;
             case 'R':
                 String retado = reto.split(":")[1];
@@ -115,6 +120,20 @@ public class EntradaUsuario extends Thread {
                     GestorSalida.enviarReto(retadoc.getSalida(), cuenta.getUsuario());
                 }
                 break;
+        }
+    }
+    
+    public void analizarCompetencia(String comp) {
+        int idComp = Integer.parseInt(comp.split(":")[1]);
+        Competencia c = InvasionAlien.SERVIDOR.getCompetencia(idComp);        
+        switch (comp.charAt(0)) {
+            case 'M':
+                int idContrincante = c.getContrincante(cuenta.getId());
+                EntradaUsuario contrincantec = InvasionAlien.SERVIDOR.getCliente(idContrincante);
+                GestorSalida.enviarMovCompetencia(contrincantec.getSalida(), comp.split(":")[2]);
+                break;
+            default:
+                throw new AssertionError();
         }
     }
 

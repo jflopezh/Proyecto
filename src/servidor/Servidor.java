@@ -1,9 +1,11 @@
 package servidor;
 
+import java.awt.Image;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.TreeMap;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -67,6 +69,10 @@ public class Servidor extends Thread{
     public void añadirCompetencia(int id, Competencia competencia) {
         competencias.put(id, competencia);
         indexComp++;
+    }
+    
+    public Competencia getCompetencia(int id) {
+        return competencias.get(id);
     }
     
     public int getIndexCompetencias() {

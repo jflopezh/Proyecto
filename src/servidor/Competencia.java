@@ -31,5 +31,16 @@ public class Competencia {
         }
         return x;
     }
+
+    public int getId() {
+        return id;
+    }
+    
+    public int getContrincante(int idJugador) {
+        if (jugador1.getIdCuenta() != idJugador) {
+            return jugador1.getIdCuenta();
+        }
+        return jugador2.getIdCuenta();
+    }
     
 }

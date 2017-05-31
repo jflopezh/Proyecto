@@ -50,4 +50,9 @@ public class GestorSalida {
         enviar(salida, paquete);
     }
     
+    public static void enviarMovCompetencia(PrintWriter salida, String mov) {
+        String paquete = "L-M:" + mov;
+        enviar(salida, paquete);
+    }
+    
 }

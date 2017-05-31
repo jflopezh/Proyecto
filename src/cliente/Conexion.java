@@ -107,19 +107,50 @@ public class Conexion extends Thread {
                 String id = competencia[1];
                 String imagenJ1 = competencia[2];
                 String imagenJ2 = competencia[3];
-                Jugador jugador1 = new Jugador(1, (Integer.parseInt(imagenJ1) + 10) + ".png");
-                Jugador jugador2 = new Jugador(2, (Integer.parseInt(imagenJ2) + 10) + ".png");
+                Jugador jugador1 = new Jugador(1, String.valueOf(Integer.parseInt(imagenJ1) + 10));
+                Jugador jugador2 = new Jugador(2, String.valueOf(Integer.parseInt(imagenJ2) + 10));
                 ArrayList<Monstruo> m = new ArrayList<>();
                 String[] monstruos = competencia[4].split("_");
                 for (String mo : monstruos) {
                     if (!mo.isEmpty()) {
                         String[] dMonstruo = mo.split(",");
-                        m.add(new Monstruo(Integer.parseInt(dMonstruo[0]), Boolean.getBoolean(dMonstruo[1]), 
+                        boolean dir = Boolean.valueOf(dMonstruo[1]);
+                        m.add(new Monstruo(Integer.parseInt(dMonstruo[0]), dir, 
                                            Integer.parseInt(dMonstruo[2]), Integer.parseInt(dMonstruo[3]), 
-                                           Integer.parseInt(dMonstruo[4])));
+                                           Integer.parseInt(dMonstruo[4]), true));
+                        m.add(new Monstruo(Integer.parseInt(dMonstruo[0]), dir, 
+                                           Integer.parseInt(dMonstruo[2]), Integer.parseInt(dMonstruo[3]), 
+                                           Integer.parseInt(dMonstruo[4]), false));
                     }
                 }
                 InvasionAlien.iniciarCompetencia(new Competencia(Integer.parseInt(id), jugador1, jugador2, m));
+                break;
+            case 'M':
+                String movimiento = comp.split(":")[1];
+                procesarMovimiento(movimiento);
+                break;
+        }
+    }
+    
+    private void procesarMovimiento(String mov) {
+        switch (mov) {
+            case "D":
+                InvasionAlien.C.getJugador2().moverDerecha();
+                break;
+            case "I":
+                InvasionAlien.C.getJugador2().moverIzquierda();
+                break;
+            case "Z":
+                InvasionAlien.C.getJugador2().disparar(1);
+                break;
+            case "X":
+                InvasionAlien.C.getJugador2().disparar(2);
+                break;
+            case "C":
+                InvasionAlien.C.getJugador2().disparar(3);
+                break;
+            case "R":
+                InvasionAlien.C.getJugador2().disparar(0);
                 break;
             default:
                 throw new AssertionError();
