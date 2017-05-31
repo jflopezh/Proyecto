@@ -40,5 +40,13 @@ public class Cuenta {
     public String getContraseña() {
         return contraseña;
     }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public int getPosRanking() {
+        return posRanking;
+    }
     
 }

@@ -84,7 +84,7 @@ public class EntradaUsuario extends Thread {
                         cuenta.notify();
                         cuenta = c;
                     }
-                    GestorSalida.enviarIngresoExitoso(salida);
+                    GestorSalida.enviarIngresoExitoso(salida, c.getUsuario() + ":" + c.getPosRanking() + ":" + c.getPuntos());
                 } else {
                     GestorSalida.enviarIngresoFallidoContraseña(salida);
                 }

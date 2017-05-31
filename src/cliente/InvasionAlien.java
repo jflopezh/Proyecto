@@ -9,7 +9,7 @@ import javax.swing.JFrame;
  */
 public class InvasionAlien {
     
-    public static final String IP = "127.0.0.1";
+    public static final String IP = "168.176.37.101";
     public static final int PUERTO = 8500;
     public static Conexion CONEXION;
     public static Controlador CONTR;
@@ -27,7 +27,6 @@ public class InvasionAlien {
             synchronized (IS) {
                 IS.wait();
             }
-            CJ = new ClienteJuego();
             CONTR = new Controlador(CONEXION, CJ);
             CJ.setVisible(true);
         } catch (IOException ex) {

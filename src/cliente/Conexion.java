@@ -5,6 +5,7 @@
  */
 package cliente;
 
+import static cliente.InvasionAlien.CJ;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -51,7 +52,7 @@ public class Conexion extends Thread {
     private void analizarPaquete(String paquete) {
         switch (paquete.charAt(0)) {
             case 'I':
-                char ingreso = paquete.charAt(2);
+                String ingreso = paquete.split("-")[1];
                 procesarRespuestaIngreso(ingreso);
                 break;
             case 'A':
@@ -65,10 +66,15 @@ public class Conexion extends Thread {
         }
     }
     
-    private void procesarRespuestaIngreso(char ingreso) {
-        switch (ingreso) {
+    private void procesarRespuestaIngreso(String ingreso) {
+        switch (ingreso.charAt(0)) {
             case 'T':
+                String[] ingresoi = ingreso.split(":");
+                String usuario = ingresoi[1];
+                String pos = ingresoi[2];
+                String puntaje = ingresoi[3];
                 synchronized (InvasionAlien.IS) {
+                    CJ = new ClienteJuego(usuario, pos, puntaje);
                     InvasionAlien.IS.notify();
                     InvasionAlien.IS.setVisible(false);
                 }

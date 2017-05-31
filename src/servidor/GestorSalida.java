@@ -15,8 +15,8 @@ public class GestorSalida {
 	}
     }
     
-    public static void enviarIngresoExitoso(PrintWriter salida) {
-        String paquete = "I-T";
+    public static void enviarIngresoExitoso(PrintWriter salida, String x) {
+        String paquete = "I-T:" + x;
         enviar(salida, paquete);
     }
     

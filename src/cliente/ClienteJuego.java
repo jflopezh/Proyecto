@@ -11,8 +11,11 @@ public class ClienteJuego extends javax.swing.JFrame implements Ventana {
 
     private Controlador controlador;
     
-    public ClienteJuego() {
+    public ClienteJuego(String usuario, String pos, String puntaje) {
         initComponents();
+        usuarioL.setText(usuario);
+        posicionL.setText(pos);
+        puntajeL.setText(puntaje);
         this.setLocationRelativeTo(null);
         this.setSize(700, 700);
         this.setTitle("Invasion Alien");
