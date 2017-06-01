@@ -5,11 +5,11 @@ import javax.swing.JFrame;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class InvasionAlien {
     
-    public static final String IP = "168.176.37.101";
+    public static final String IP = "127.0.0.1";
     public static final int PUERTO = 8500;
     public static Conexion CONEXION;
     public static Controlador CONTR;

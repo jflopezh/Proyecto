@@ -2,7 +2,7 @@ package servidor;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class Volador {
     

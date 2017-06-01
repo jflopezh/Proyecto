@@ -6,7 +6,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class Monstruo extends Dibujo {
     

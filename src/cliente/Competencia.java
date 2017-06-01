@@ -15,7 +15,7 @@ import javax.swing.Timer;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class Competencia extends JPanel implements ActionListener {
 
@@ -27,8 +27,8 @@ public class Competencia extends JPanel implements ActionListener {
     private ArrayList<Dibujo> aDibujar;
     private ArrayList<Dibujo> removerD;
     private Timer timer;
-    private int count;
     private int tiempo;
+    private int tiempoActual;
 
     public Competencia(int id, Jugador jugador1, Jugador jugador2, ArrayList<Monstruo> monstruos) {
         tiempo = 100;
@@ -41,7 +41,14 @@ public class Competencia extends JPanel implements ActionListener {
         this.monstruos = monstruos;
         addKeyListener(new TAdapter());
         setFocusable(true);
+        tiempoActual = (int) (System.currentTimeMillis() / 1000);
         timer = new Timer(50, this);
+        GestorSalida.enviarCompetenciaCargada(InvasionAlien.CONEXION.getSalida(), id);
+        synchronized (this) {
+            try {
+                this.wait();
+            } catch (InterruptedException ex) {}
+        }
         timer.start();
     }
 
@@ -76,21 +83,19 @@ public class Competencia extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        count++;
-        if (count == 20) {
+        int ta = (int) (System.currentTimeMillis() / 1000);
+        if (ta != tiempoActual) {
             tiempo--;
-            System.out.println("tiempo: " + tiempo);
             for (int i = 0; i < monstruos.size(); i++) {
                 Monstruo m = monstruos.get(i);
                 if (m.getTiempoEntrada() == tiempo) {
-                    System.out.println(m.getTiempoEntrada());
                     aDibujar.add(m);
                     removerM.add(m);
                 }
             }
             monstruos.removeAll(removerM);
             removerM.clear();
-            count = 0;
+            tiempoActual = ta;
         }
         if (jugador1.getDisparo() != 0) {
             procesarDisparos1();

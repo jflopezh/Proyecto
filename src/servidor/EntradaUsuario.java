@@ -8,7 +8,7 @@ import java.net.Socket;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class EntradaUsuario extends Thread {
     
@@ -103,9 +103,10 @@ public class EntradaUsuario extends Thread {
                 int idRetador = InvasionAlien.SERVIDOR.getIdRetado(retador);
                 Competencia c = new Competencia(InvasionAlien.SERVIDOR.getIndexCompetencias() + 1,
                                                 idRetador, cuenta.getId());
+                String cs = c.toString();
                 EntradaUsuario cretador = InvasionAlien.SERVIDOR.getCliente(idRetador);
-                GestorSalida.enviarCompetencia(salida, c);
-                GestorSalida.enviarCompetencia(cretador.getSalida(), c);
+                GestorSalida.enviarCompetencia(salida, cs);
+                GestorSalida.enviarCompetencia(cretador.getSalida(), cs);
                 InvasionAlien.SERVIDOR.añadirCompetencia(c.getId(), c);
                 break;
             case 'R':
@@ -132,8 +133,12 @@ public class EntradaUsuario extends Thread {
                 EntradaUsuario contrincantec = InvasionAlien.SERVIDOR.getCliente(idContrincante);
                 GestorSalida.enviarMovCompetencia(contrincantec.getSalida(), comp.split(":")[2]);
                 break;
-            default:
-                throw new AssertionError();
+            case 'C':
+                c.jugadorListo(cuenta.getId());
+                if (c.estanJugadoresListos()) {
+                    GestorSalida.enviarIniciarCompetencia(salida);
+                }
+                break;
         }
     }
 

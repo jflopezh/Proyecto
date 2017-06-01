@@ -5,7 +5,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class ClienteJuego extends javax.swing.JFrame implements Ventana {
 
@@ -128,7 +128,7 @@ public class ClienteJuego extends javax.swing.JFrame implements Ventana {
         tituloL.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 40)); // NOI18N
         tituloL.setForeground(new java.awt.Color(255, 255, 255));
         tituloL.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloL.setText("Invacion Alienigena");
+        tituloL.setText("Invasion Alien");
         tituloL.setToolTipText("");
         getContentPane().add(tituloL, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 450, 70));
 

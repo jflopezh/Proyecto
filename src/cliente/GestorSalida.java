@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cliente;
 
 import java.io.PrintWriter;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class GestorSalida {
     
@@ -37,6 +32,11 @@ public class GestorSalida {
     
     public static void enviarAceptacionReto(PrintWriter salida, String retador) {
         String paquete = "A-A:" + retador;
+        enviar(salida, paquete);
+    }
+    
+    public static void enviarCompetenciaCargada(PrintWriter salida, int idCompetencia) {
+        String paquete = "L-C:" + idCompetencia;
         enviar(salida, paquete);
     }
     

@@ -1,15 +1,13 @@
 package servidor;
 
-import java.awt.Image;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.util.ArrayList;
 import java.util.TreeMap;
-import javax.swing.ImageIcon;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class Servidor extends Thread{
     
@@ -20,9 +18,9 @@ public class Servidor extends Thread{
     private TreeMap<Integer, Competencia> competencias;
     private int indexComp;
     
-    public Servidor(int puerto) {
+    public Servidor() {
         try {
-            servidor = new ServerSocket(puerto);
+            servidor = new ServerSocket(InvasionAlien.PUERTO);
         } catch (IOException ex) {
             System.out.println("El servidor no pudo ser creado");
         }

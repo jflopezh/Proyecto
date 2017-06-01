@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cliente;
 
-import static cliente.InvasionAlien.CJ;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -16,7 +10,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class Conexion extends Thread {
     
@@ -73,8 +67,8 @@ public class Conexion extends Thread {
                 String usuario = ingresoi[1];
                 String pos = ingresoi[2];
                 String puntaje = ingresoi[3];
+                InvasionAlien.CJ = new ClienteJuego(usuario, pos, puntaje);
                 synchronized (InvasionAlien.IS) {
-                    CJ = new ClienteJuego(usuario, pos, puntaje);
                     InvasionAlien.IS.notify();
                     InvasionAlien.IS.setVisible(false);
                 }
@@ -130,6 +124,11 @@ public class Conexion extends Thread {
                     }
                 }
                 InvasionAlien.iniciarCompetencia(new Competencia(Integer.parseInt(id), jugador1, jugador2, m));
+                break;
+            case 'I':
+                synchronized (InvasionAlien.C) {
+                    InvasionAlien.C.notify();
+                }
                 break;
             case 'M':
                 String movimiento = comp.split(":")[1];

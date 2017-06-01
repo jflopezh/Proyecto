@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class Competencia {
     
@@ -41,6 +41,18 @@ public class Competencia {
             return jugador1.getIdCuenta();
         }
         return jugador2.getIdCuenta();
+    }
+    
+    public void jugadorListo(int idJugador) {
+        if (jugador1.getIdCuenta() == idJugador) {
+            jugador1.listo();
+        } else {
+            jugador2.listo();
+        }
+    }
+    
+    public boolean estanJugadoresListos() {
+        return  (jugador1.isListo() && jugador2.isListo());
     }
     
 }

@@ -6,7 +6,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class InicioSesion extends javax.swing.JFrame implements Ventana {
     

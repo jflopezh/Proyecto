@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public class GestorSalida {
     
@@ -45,8 +45,13 @@ public class GestorSalida {
         enviar(salida, paquete);
     }
     
-    public static void enviarCompetencia(PrintWriter salida, Competencia comp) {
-        String paquete = "L-C:" + comp.toString();
+    public static void enviarCompetencia(PrintWriter salida, String comp) {
+        String paquete = "L-C:" + comp;
+        enviar(salida, paquete);
+    }
+    
+    public static void enviarIniciarCompetencia(PrintWriter salida) {
+        String paquete = "L-I";
         enviar(salida, paquete);
     }
     

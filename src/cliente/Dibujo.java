@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 
 /**
  *
- * @author aleja
+ * @author Juan Felipe López Hurtado
  */
 public abstract class Dibujo {
     
