@@ -147,18 +147,22 @@ public class Conexion extends Thread {
                 break;
             case "Z":
                 InvasionAlien.C.getJugador2().disparar(1);
+                InvasionAlien.C.procesarDisparos2();
                 InvasionAlien.C.repaint();
                 break;
             case "X":
                 InvasionAlien.C.getJugador2().disparar(2);
+                InvasionAlien.C.procesarDisparos2();
                 InvasionAlien.C.repaint();
                 break;
             case "C":
                 InvasionAlien.C.getJugador2().disparar(3);
+                InvasionAlien.C.procesarDisparos2();
                 InvasionAlien.C.repaint();
                 break;
             case "R":
                 InvasionAlien.C.getJugador2().disparar(0);
+                InvasionAlien.C.procesarDisparos2();
                 InvasionAlien.C.repaint();
                 break;
             default:

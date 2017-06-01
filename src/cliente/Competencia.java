@@ -96,12 +96,6 @@ public class Competencia extends JPanel implements ActionListener {
             removerM.clear();
             tiempoActual = ta;
         }
-        if (jugador1.getDisparo() != 0) {
-            procesarDisparos1();
-        }
-        if (jugador2.getDisparo() != 0) {
-            procesarDisparos2();
-        }
         for (Dibujo d : aDibujar) {
             if (d instanceof Monstruo) {
                 Monstruo m = (Monstruo) d;
@@ -138,7 +132,7 @@ public class Competencia extends JPanel implements ActionListener {
         }
     }
 
-    private void procesarDisparos2() {
+    public void procesarDisparos2() {
         for (Dibujo d : aDibujar) {
             if (d instanceof Monstruo) {
                 Monstruo m = (Monstruo) d;
@@ -198,14 +192,17 @@ public class Competencia extends JPanel implements ActionListener {
                     break;
                 case KeyEvent.VK_Z:
                     jugador1.disparar(1);
+                    procesarDisparos2();
                     GestorSalida.enviarMovimiento(InvasionAlien.CONEXION.getSalida(), id, "Z");
                     break;
                 case KeyEvent.VK_X:
                     jugador1.disparar(2);
+                    procesarDisparos2();
                     GestorSalida.enviarMovimiento(InvasionAlien.CONEXION.getSalida(), id, "X");
                     break;
                 case KeyEvent.VK_C:
                     jugador1.disparar(3);
+                    procesarDisparos2();
                     GestorSalida.enviarMovimiento(InvasionAlien.CONEXION.getSalida(), id, "C");
                     break;
             }
