@@ -35,7 +35,7 @@ public class GestorSalida {
         enviar(salida, paquete);
     }
     
-    public static void enviarCompetenciaCargada(PrintWriter salida, int idCompetencia) {
+    public static void enviarSincronizarCompetencia(PrintWriter salida, int idCompetencia) {
         String paquete = "L-C:" + idCompetencia;
         enviar(salida, paquete);
     }

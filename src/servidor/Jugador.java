@@ -13,7 +13,6 @@ public class Jugador {
     public Jugador(int idCuenta) {
         this.idCuenta = idCuenta;
         this.apariencia = (int) (Math.random() * 5 + 1);
-        listo = false;
     }
 
     public int getIdCuenta() {
@@ -24,7 +23,7 @@ public class Jugador {
         return apariencia;
     }
 
-    public boolean isListo() {
+    public boolean estaListo() {
         return listo;
     }
     

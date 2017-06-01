@@ -50,7 +50,7 @@ public class GestorSalida {
         enviar(salida, paquete);
     }
     
-    public static void enviarIniciarCompetencia(PrintWriter salida) {
+    public static void enviarSincronizarCompetencia(PrintWriter salida) {
         String paquete = "L-I";
         enviar(salida, paquete);
     }

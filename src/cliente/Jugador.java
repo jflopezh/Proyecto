@@ -18,7 +18,7 @@ public class Jugador extends Dibujo {
         if (numero == 1) {
             x = 80;
         } else {
-            x = 800;
+            x = 763; 
         }
         puntaje = 0;
     }

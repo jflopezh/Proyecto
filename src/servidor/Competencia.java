@@ -52,7 +52,7 @@ public class Competencia {
     }
     
     public boolean estanJugadoresListos() {
-        return  (jugador1.isListo() && jugador2.isListo());
+        return  (jugador1.estaListo() && jugador2.estaListo());
     }
     
 }

@@ -105,9 +105,9 @@ public class EntradaUsuario extends Thread {
                                                 idRetador, cuenta.getId());
                 String cs = c.toString();
                 EntradaUsuario cretador = InvasionAlien.SERVIDOR.getCliente(idRetador);
+                InvasionAlien.SERVIDOR.añadirCompetencia(c.getId(), c);
                 GestorSalida.enviarCompetencia(salida, cs);
                 GestorSalida.enviarCompetencia(cretador.getSalida(), cs);
-                InvasionAlien.SERVIDOR.añadirCompetencia(c.getId(), c);
                 break;
             case 'R':
                 String retado = reto.split(":")[1];
@@ -138,8 +138,8 @@ public class EntradaUsuario extends Thread {
                 if (c.estanJugadoresListos()) {
                     int idContrincant = c.getContrincante(cuenta.getId());
                     EntradaUsuario contrincantc = InvasionAlien.SERVIDOR.getCliente(idContrincant);
-                    GestorSalida.enviarIniciarCompetencia(salida);
-                    GestorSalida.enviarIniciarCompetencia(contrincantc.getSalida());
+                    GestorSalida.enviarSincronizarCompetencia(salida);
+                    GestorSalida.enviarSincronizarCompetencia(contrincantc.getSalida());
                 }
                 break;
         }

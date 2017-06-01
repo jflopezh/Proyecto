@@ -29,7 +29,7 @@ public class Competencia extends JPanel implements ActionListener {
     private Timer timer;
     private int tiempo;
     private int tiempoActual;
-    private boolean iniciar;
+    private boolean sincronizado;
 
     public Competencia(int id, Jugador jugador1, Jugador jugador2, ArrayList<Monstruo> monstruos) {
         tiempo = 150;
@@ -43,12 +43,9 @@ public class Competencia extends JPanel implements ActionListener {
         addKeyListener(new TAdapter());
         setFocusable(true);
         tiempoActual = (int) (System.currentTimeMillis() / 1000);
+        sincronizado = false;
         timer = new Timer(50, this);
         timer.start();
-        GestorSalida.enviarCompetenciaCargada(InvasionAlien.CONEXION.getSalida(), id);
-        while (!iniciar) {
-            tiempo = 0;
-        }
     }
 
     @Override
@@ -84,6 +81,9 @@ public class Competencia extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         int ta = (int) (System.currentTimeMillis() / 1000);
         if (ta != tiempoActual) {
+            if (!sincronizado) {
+                GestorSalida.enviarSincronizarCompetencia(InvasionAlien.CONEXION.getSalida(), id);
+            }
             tiempo--;
             for (int i = 0; i < monstruos.size(); i++) {
                 Monstruo m = monstruos.get(i);
@@ -149,10 +149,6 @@ public class Competencia extends JPanel implements ActionListener {
             }
         }
     }
-    
-    public void iniciar() {
-        iniciar = true;
-    }
 
     public Jugador getJugador2() {
         return jugador2;
@@ -160,6 +156,11 @@ public class Competencia extends JPanel implements ActionListener {
     
     public int getId() {
         return id;
+    }
+    
+    public void iniciar() {
+        sincronizado = true;
+        tiempo = 150;
     }
 
     private class TAdapter extends KeyAdapter {
