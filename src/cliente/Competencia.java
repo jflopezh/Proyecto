@@ -9,8 +9,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -137,6 +135,8 @@ public class Competencia extends JPanel implements ActionListener {
                 }
             }
         }
+        aDibujar.removeAll(removerD);
+        removerD.clear();
     }
 
     public void procesarDisparos2() {
@@ -149,6 +149,8 @@ public class Competencia extends JPanel implements ActionListener {
                 }
             }
         }
+        aDibujar.removeAll(removerD);
+        removerD.clear();
     }
 
     public Jugador getJugador2() {
