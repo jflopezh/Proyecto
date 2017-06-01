@@ -29,6 +29,7 @@ public class Competencia extends JPanel implements ActionListener {
     private Timer timer;
     private int tiempo;
     private int tiempoActual;
+    private boolean iniciar;
 
     public Competencia(int id, Jugador jugador1, Jugador jugador2, ArrayList<Monstruo> monstruos) {
         tiempo = 150;
@@ -43,10 +44,11 @@ public class Competencia extends JPanel implements ActionListener {
         setFocusable(true);
         tiempoActual = (int) (System.currentTimeMillis() / 1000);
         timer = new Timer(50, this);
-    }
-    
-    public void iniciarTimer() {
         timer.start();
+        GestorSalida.enviarCompetenciaCargada(InvasionAlien.CONEXION.getSalida(), id);
+        while (!iniciar) {
+            tiempo = 0;
+        }
     }
 
     @Override
@@ -146,6 +148,10 @@ public class Competencia extends JPanel implements ActionListener {
                 }
             }
         }
+    }
+    
+    public void iniciar() {
+        iniciar = true;
     }
 
     public Jugador getJugador2() {

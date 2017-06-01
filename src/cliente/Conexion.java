@@ -126,7 +126,7 @@ public class Conexion extends Thread {
                 InvasionAlien.iniciarCompetencia(new Competencia(Integer.parseInt(id), jugador1, jugador2, m));
                 break;
             case 'I':
-                InvasionAlien.C.iniciarTimer();
+                InvasionAlien.C.iniciar();
                 break;
             case 'M':
                 String movimiento = comp.split(":")[1];

@@ -9,7 +9,7 @@ import javax.swing.JFrame;
  */
 public class InvasionAlien {
     
-    public static final String IP = "127.0.0.1";
+    public static final String IP = "192.168.0.5";
     public static final int PUERTO = 7200;
     public static Conexion CONEXION;
     public static Controlador CONTR;
@@ -44,7 +44,6 @@ public class InvasionAlien {
         J.setUndecorated(true);
         J.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         J.setVisible(true);
-        GestorSalida.enviarCompetenciaCargada(InvasionAlien.CONEXION.getSalida(), c.getId());
     }
     
 }
