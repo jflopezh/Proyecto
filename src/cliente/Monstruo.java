@@ -116,9 +116,9 @@ public class Monstruo extends Dibujo {
     
     public Rectangle getCorazon() {
         if (direccion) {
-            return new Rectangle(x, y, 200, 150);
+            return new Rectangle(x, y, 150, 112);
         }
-        return new Rectangle(x - 200, y, 200, 150);
+        return new Rectangle(x - 200, y, 150, 112);
     }
 
     public boolean isDireccion() {

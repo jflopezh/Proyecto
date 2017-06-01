@@ -81,7 +81,6 @@ public class Competencia extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         int ta = (int) (System.currentTimeMillis() / 1000);
         if (ta != tiempoActual) {
-            System.out.println(jugador2.getX());
             if (!sincronizado) {
                 GestorSalida.enviarSincronizarCompetencia(InvasionAlien.CONEXION.getSalida(), id);
                 synchronized (this) {
