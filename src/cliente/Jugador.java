@@ -57,6 +57,6 @@ public class Jugador extends Dibujo {
     }
     
     public Rectangle getAreaDisparo() {
-        return new Rectangle(x + 19, 270 + ((disparo - 1) * 150), 80, 80);
+        return new Rectangle(x + 9, 270 + ((disparo - 1) * 150), 100, 100);
     }
 }
