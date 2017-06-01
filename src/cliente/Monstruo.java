@@ -29,15 +29,15 @@ public class Monstruo extends Dibujo {
         y = 250 + ((altura - 1) * 150);
         if (ladoIzquierdo) {
             if (direccion) {
-                x = -150;
+                x = -67;
             } else {
                 x = 750;
             }
         } else {
             if (direccion) {
-                x = 670;
+                x = 616;
             } else {
-                x = 1450;
+                x = 1433;
             }
         }
         this.tiempoEntrada = tiempoEntrada;
