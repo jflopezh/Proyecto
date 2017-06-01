@@ -127,6 +127,9 @@ public class Conexion extends Thread {
                 break;
             case 'I':
                 InvasionAlien.C.iniciar();
+                synchronized (InvasionAlien.C) {
+                    InvasionAlien.C.notify();
+                }
                 break;
             case 'M':
                 String movimiento = comp.split(":")[1];

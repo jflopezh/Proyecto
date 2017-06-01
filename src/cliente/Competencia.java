@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -83,6 +85,11 @@ public class Competencia extends JPanel implements ActionListener {
         if (ta != tiempoActual) {
             if (!sincronizado) {
                 GestorSalida.enviarSincronizarCompetencia(InvasionAlien.CONEXION.getSalida(), id);
+                synchronized (this) {
+                    try {
+                        this.wait();
+                    } catch (InterruptedException ex) {}
+                }
             }
             tiempo--;
             for (int i = 0; i < monstruos.size(); i++) {
@@ -192,17 +199,17 @@ public class Competencia extends JPanel implements ActionListener {
                     break;
                 case KeyEvent.VK_Z:
                     jugador1.disparar(1);
-                    procesarDisparos2();
+                    procesarDisparos1();
                     GestorSalida.enviarMovimiento(InvasionAlien.CONEXION.getSalida(), id, "Z");
                     break;
                 case KeyEvent.VK_X:
                     jugador1.disparar(2);
-                    procesarDisparos2();
+                    procesarDisparos1();
                     GestorSalida.enviarMovimiento(InvasionAlien.CONEXION.getSalida(), id, "X");
                     break;
                 case KeyEvent.VK_C:
                     jugador1.disparar(3);
-                    procesarDisparos2();
+                    procesarDisparos1();
                     GestorSalida.enviarMovimiento(InvasionAlien.CONEXION.getSalida(), id, "C");
                     break;
             }
