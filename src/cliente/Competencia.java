@@ -81,6 +81,7 @@ public class Competencia extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         int ta = (int) (System.currentTimeMillis() / 1000);
         if (ta != tiempoActual) {
+            System.out.println(jugador2.getX());
             if (!sincronizado) {
                 GestorSalida.enviarSincronizarCompetencia(InvasionAlien.CONEXION.getSalida(), id);
                 synchronized (this) {
@@ -129,7 +130,7 @@ public class Competencia extends JPanel implements ActionListener {
         for (Dibujo d : aDibujar) {
             if (d instanceof Monstruo) {
                 Monstruo m = (Monstruo) d;
-                if (jugador1.getAreaDisparo().contains(m.getCorazon())) {
+                if (m.getCorazon().intersects(jugador1.getAreaDisparo())) {
                     jugador1.sumarPuntos(m.getPuntos());
                     removerD.add(m);
                 }
@@ -143,7 +144,7 @@ public class Competencia extends JPanel implements ActionListener {
         for (Dibujo d : aDibujar) {
             if (d instanceof Monstruo) {
                 Monstruo m = (Monstruo) d;
-                if (jugador2.getAreaDisparo().contains(m.getCorazon())) {
+                if (m.getCorazon().intersects(jugador2.getAreaDisparo())) {
                     jugador2.sumarPuntos(m.getPuntos());
                     removerD.add(m);
                 }

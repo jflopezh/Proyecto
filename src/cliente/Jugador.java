@@ -1,6 +1,7 @@
 package cliente;
 
 import java.awt.Graphics;
+import java.awt.Point;
 import java.awt.Rectangle;
 import javax.swing.JPanel;
 
@@ -57,6 +58,6 @@ public class Jugador extends Dibujo {
     }
     
     public Rectangle getAreaDisparo() {
-        return new Rectangle(x + 5, 270 + ((disparo - 1) * 150), 108, 108);
+        return new Rectangle(x + 9, 249 + ((disparo - 1) * 150), 100, 102);
     }
 }

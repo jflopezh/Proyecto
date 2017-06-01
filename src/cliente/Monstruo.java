@@ -1,7 +1,7 @@
 package cliente;
 
 import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.Rectangle;
 import javax.swing.JPanel;
 
 /**
@@ -114,11 +114,11 @@ public class Monstruo extends Dibujo {
         return ladoIzquierdo;
     }
     
-    public Point getCorazon() {
+    public Rectangle getCorazon() {
         if (direccion) {
-            return new Point(x + 100, y + 75);
+            return new Rectangle(x, y, 200, 150);
         }
-        return new Point(x - 100, y + 75);
+        return new Rectangle(x - 200, y, 200, 150);
     }
 
     public boolean isDireccion() {
