@@ -136,7 +136,10 @@ public class EntradaUsuario extends Thread {
             case 'C':
                 c.jugadorListo(cuenta.getId());
                 if (c.estanJugadoresListos()) {
+                    int idContrincant = c.getContrincante(cuenta.getId());
+                    EntradaUsuario contrincantc = InvasionAlien.SERVIDOR.getCliente(idContrincant);
                     GestorSalida.enviarIniciarCompetencia(salida);
+                    GestorSalida.enviarIniciarCompetencia(contrincantc.getSalida());
                 }
                 break;
         }
